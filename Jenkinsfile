@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    
     triggers {
         pollSCM '* * * * *'
     }
@@ -19,8 +18,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 cd myapp
-                python hello.py
-                python hello.py --name=Lachlan
+                python3 hello.py
                 '''
             }
         }
