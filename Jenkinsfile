@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.11.5-alpine3.18' } }
+    agent any
     triggers {
         pollSCM '* * * * *'
     }
@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
+                export PYTHONPATH=$WORKSPACE:$PYTHONPATH
                 sh '''
                 cd myapp
                 pip install -r requirements.txt
