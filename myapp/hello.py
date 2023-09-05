@@ -1,4 +1,4 @@
-from app.fire import fire
+import fire
 
 def hello(name="World"):
   return "Hello %s!" % name
