@@ -7,7 +7,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                export PYTHONPATH=$WORKSPACE:$PYTHONPATH
                 sh '''
                 cd myapp
                 pip install -r requirements.txt
