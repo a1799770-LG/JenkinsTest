@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     triggers {
         pollSCM '* * * * *'
     }
@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                bat '''
+                sh '''
                 cd myapp
                 pip install -r requirements.txt
                 '''
@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing.."
-                bat '''
+                sh '''
                 cd myapp
                 python3 hello.py
                 python3 hello.py --name=Brad
@@ -27,7 +27,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
-                bat '''
+                sh '''
                 echo "doing delivery stuff.."
                 '''
             }
